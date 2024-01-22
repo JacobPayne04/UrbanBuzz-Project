@@ -1,0 +1,34 @@
+.UserPost {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 20px;
+  margin: 20px;
+  width: 250px; /* Increase width by 25% */
+  height: 250px; /* Increase height by 25% */
+  margin: 40px; 
+
+  overflow: hidden;
+}
+
+.UserPost-image{
+  height: 100px;
+  width: 100px;
+ 
+}
+
+.UserPost p {
+  margin: 0 10px; /* Add horizontal margin to paragraphs */
+  
+}
+
+.body {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-left: 450px;
+  margin-top: 60px; 
+
+}

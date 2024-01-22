@@ -1,0 +1,7 @@
+.profbox{
+    display: flex;
+    justify-content: center;
+}
+.messageContain{
+    margin-left: 400px;
+}
