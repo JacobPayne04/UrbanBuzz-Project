@@ -29,7 +29,7 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.virtual("confirm")
     .get(function(){
-        console.log("27", this._confirm)
+      //  console.log("27", this._confirm)
         return this._confirm
     })
     .set(function(value){
