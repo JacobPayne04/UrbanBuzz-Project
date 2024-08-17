@@ -63,13 +63,13 @@ const Message = ({ userId }) => {
     return (
         <div className="message-component">
             <div className="users-list">
-                {users.map(user => (
+                {users.map((user) => (
                     <div 
                         key={user._id} 
                         className="user-item"
                         onClick={() => setReceiverId(user._id)}
                     >
-                        {user.name}
+                        {user.username}
                     </div>
                 ))}
             </div>
