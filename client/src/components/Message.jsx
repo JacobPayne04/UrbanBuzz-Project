@@ -33,6 +33,16 @@ const Message = ({ userId }) => {
         fetchUsers();
     }, [userId]);
 
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/users")
+            .then(res => {
+                console.log("✅✅✅✅", res.data)
+                setUsers(res.data.users)
+            })
+            .catch(err => console.log("❌❌❌❌", err))
+
+    }, [])
+
     const handleSendMessage = async () => {
         if (!newMessage.trim() || !receiverId) return;
 
