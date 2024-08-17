@@ -20,7 +20,7 @@ const Message = ({ userId }) => {
                 console.error('Error fetching messages:', error);
             }
         };
-
+        // this is my message
         // Fetch users when the component mounts
         const fetchUsers = async () => {
             try {
