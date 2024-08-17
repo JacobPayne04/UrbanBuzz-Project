@@ -11,7 +11,8 @@ const Login = () => {
     const [password, setPassword] = useState()
     const [errormsg, seterrormsg] = useState("")
     const navigate = useNavigate()
-
+    
+    const _id = localStorage.getItem("_id")
     const username = localStorage.getItem("username")
 
     const login = (e) => {

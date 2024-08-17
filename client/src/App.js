@@ -22,52 +22,45 @@ function App() {
 
   return (
     <div className='allNav'>
-      {username ?
+      {username ? (
         <>
-
-          <div className="App">
-
-            <div className='navContainer'>
-
-              <div className='here'>
-                <h1>Urban-buzz</h1>
-              </div>
-              <div className='nav-bar'></div>
-
-              <div className='btnbox '> 
-                  <Link to={"/main"}> <button className='navbtn btn btn-primary'>Home</button></Link>
-                  <p></p>
-                  <Link to={"/profile"}> <button className='navbtn btn btn-primary'>Profile</button></Link>
-                  <p></p>
-                  <Link to={"/message"}> <button className='navbtn btn btn-primary'>messages</button></Link>
-                  <p></p>
-                  <Link to={"/create"}> <button className='navbtn btn btn-primary'>Add Post</button></Link>
-                  <p></p>
-                  <button className='navbtn btn btn-primary' onClick={() => SignOut()}>Sign Out</button>              
-              </div>
-
-            </div>
-
-
-            <div>
-
-              <Routes>
-                <Route path="/main" element={<Main />} />
-                <Route path="/create" element={<Create />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/" element={<Register />} />
-                <Route path="/profile/:id" element={<Profile />} />
-                <Route path="/message" element={<Message />} />
-                <Route path="/loginreg" element={<LoginAndReg />} />
-                <Route path="*" element={< Navigate to={"/User"} />} />
-              </Routes>
-            </div>
+        <div className="App">
+        <div className='navContainer'>
+          <div className='here'>
+            <h1>Urban-buzz</h1>
           </div>
+          <div className='btnbox'>
+            <Link to="/main"><button className='navbtn btn btn-primary'>Home</button></Link>
+            <Link to="/profile"><button className='navbtn btn btn-primary'>Profile</button></Link>
+            <Link to="/message"><button className='navbtn btn btn-primary'>Messages</button></Link>
+            <Link to="/create"><button className='navbtn btn btn-primary'>Add Post</button></Link>
+            <button className='navbtn btn btn-primary' onClick={SignOut}>Sign Out</button>
+          </div>
+        </div>
+        
 
-
-
+        <div> 
+          <Routes>
+            <Route path="/main" element={<Main />} />
+            <Route path="/create" element={<Create />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Main />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/message" element={<Message />} />
+            <Route path="/loginreg" element={<LoginAndReg />} />
+            <Route path="*" element={<Navigate to="/main" />} />
+          </Routes>
+        </div>
+      </div>
         </>
-        : <LoginAndReg />}
+        //Login Routes
+      ) : (
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/loginreg" element={<LoginAndReg />} />
+          <Route path="*" element={<Navigate to="/loginreg" />} />
+        </Routes>
+      )}
     </div>
   );
 }

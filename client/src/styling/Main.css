@@ -1,34 +1,122 @@
+/* UserPost CSS */
 .UserPost {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  padding: 20px;
-  margin: 20px;
-  width: 250px; /* Increase width by 25% */
-  height: 250px; /* Increase height by 25% */
-  margin: 40px; 
-
-  overflow: hidden;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(4px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+    margin: 20px;
+    width: 350px; /* Increase width by 25% */
+    height: 450px; /* Increase height by 25% */
+    margin: 40px;
+    overflow: hidden;
 }
 
-.UserPost-image{
-  height: 100px;
-  width: 100px;
- 
+
+.UserPost-image {
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.UserPost-image-house{
+width: 250px;
+height:150px;
+
+}
+
+.UsernameTemplate {
+    margin: 0;
+    font-size: 1.7em;
+}
+
+.userInfo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.description{
+    font-size: 2em;
 }
 
 .UserPost p {
-  margin: 0 10px; /* Add horizontal margin to paragraphs */
-  
+    margin: 0 10px; /* Add horizontal margin to paragraphs      <button onClick={() => deletePost(onePost._id)}>HERE IS THE BUTTON </button>*/
 }
 
 .body {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-left: 450px;
-  margin-top: 60px; 
+  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 60px;
+}
 
+/* Footer CSS */
+.footerMain {
+    background-color: #222;
+    color: #fff;
+    padding: 40px 0;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+    margin: 20px;
+}
+
+.footer-column h3, .footer-column h4 {
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.footer-column p, .footer-column ul, .footer-column a {
+    font-size: 0.9em;
+    color: #ccc;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+    color: #fff;
+}
+
+.social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #444;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.8em;
+    color: #ccc;
 }

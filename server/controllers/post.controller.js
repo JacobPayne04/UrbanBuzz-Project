@@ -31,19 +31,17 @@ module.exports.createNewPost = (req, res) => { ///             old way
         });
 }
 
-// module.exports.createNewPost = (req, res) => {
-//     const userId = req.body.userId; // Assuming the userId is sent in the request body //       new way
-//     const newPost = new Post(req.body);
-
-//     newPost.save()
-//         .then((post) => {
-//             User.findById(userId)
-//                 .then((user) => {
-//                     user.posts.push(post._id);
-//                     user.save()
-//                         .then(() => {
+//module.exports.createNewPost = (req, res) => {
+ //    const userId = req.body.userId; // Assuming the userId is sent in the request body //       new way
+ //   const newPost = new Post(req.body);
+ //   newPost.save()
+ //       .then((post) => {
+ //           User.findById(userId)
+  //             .then((user) => {
+  //                 user.posts.push(post._id);
+ //                   user.save()                         .then(() => {
 //                             res.json({ post: post });
-//                         })
+ //                        })
 //                         .catch((err) => {
 //                             res.status(500).json(err);
 //                         });

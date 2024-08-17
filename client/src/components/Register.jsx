@@ -61,7 +61,7 @@ const Register = () => {
       <div className='login  '>
 
         <div className='glass-form '>
-          <form onSubmit={register}  >
+          <form onSubmit={register} >
             <h3>Register Account</h3>
             <div className='mb-2' >
               <label htmlFor="username">Username</label>

@@ -2,12 +2,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(135deg, #1e2022, #3c3e44); /* Updated background color */
+   
+   
+    flex-direction: column;
+    padding: 20px;
+ 
+    border-radius: 10px;
+    
+    
 }
 
+
 .create-form {
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -18,9 +25,10 @@
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); /* Updated for glassmorphism */
     padding: 20px;
     width: 70%;
-    max-width: 800px;
-    min-width: 300px;
+    max-width: 400px;
+  
     color: white; /* Added for dark mode */
+    margin-left: 30px;
 }
 
 .create-form button {
@@ -37,3 +45,78 @@
 .create-form button:hover {
     background-color: #0056b3;
 }
+.sharepost{
+
+}
+
+
+.create-header {
+    margin-bottom: 20px;
+   
+}
+
+.create-header h2 {
+    color: #009AC7;
+    font-size: 2rem;
+    margin-left: 80px;
+}
+
+.create-header p {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+.create-form-wrapper {
+    width: 80%;
+    margin-left: 55%;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-control {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #009AC7;
+    box-shadow: 0 0 5px rgba(0,154,199,0.5);
+}
+
+.submit-button {
+    background-color: #009AC7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #007a9e;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9rem;
+}
+

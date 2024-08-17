@@ -23,7 +23,8 @@ const Create = (props) => {
         const tempObjectToSendToDB = {
             property: property,
             imageUrl: imageUrl,
-            description: description
+            description: description,
+            user_id : _id
         };
 
         // SUBMITING THE PRODUCTS
@@ -49,32 +50,34 @@ const Create = (props) => {
 
     return (
         <div className='create-container'>
-            <div className=' ' >
-
-                <div  className='create-form 40-w p-5 rounded '>
-                    <form onSubmit={submitHouse}>
-                        {errors.map((err, index) => <p key={index}>{err}</p>)}
-                        <div>
-                            <p>Type of Property: </p>
-                            <input value={user_id} type="hidden" />
-                            <select className='form-control' name="HouseType" id="houseType" value={property} onChange={e => setProperty(e.target.value)}  >
-                                <option value="Single Family">Single Family</option>
-                                <option value="Multi Family">Multi Family</option>
-                                <option value="Complex">Complex</option>
-                                <option value="Land">Land</option>
-                            </select>
-                            <p>Add image here:</p>
-                            <input  className='form-control' type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
-                            <p>Description:</p>
-                            <input className='form-control' type="text" value={description} onChange={e => setDescription(e.target.value)} />
-                            <p></p>
-                            <button style={{ backgroundColor: "#009AC7" }} type="submit">Add Post</button>
-
-                        </div>
-                    </form>
-                </div>
+        <div className='create-header'>
+            <h2>Create a Post</h2>
+            <p className='sharepost'>Share a new property with the community!</p>
+        </div>
+        <div className='create-form-wrapper'>
+            <div className='create-form 40-w p-5 rounded'>
+                <form onSubmit={submitHouse}>
+                    {errors.map((err, index) => <p key={index} className='error-message'>{err}</p>)}
+                    <div>
+                        <p>Type of Property: </p>
+                        <input value={user_id} type="hidden" />
+                        <select className='form-control' name="HouseType" id="houseType" value={property} onChange={e => setProperty(e.target.value)} >
+                            <option value="Single Family">Single Family</option>
+                            <option value="Multi Family">Multi Family</option>
+                            <option value="Complex">Complex</option>
+                            <option value="Land">Land</option>
+                        </select>
+                        <p>Add image here:</p>
+                        <input className='form-control' type="text" value={imageUrl} onChange={e => setImageUrl(e.target.value)} />
+                        <p>Description:</p>
+                        <input className='form-control' type="text" value={description} onChange={e => setDescription(e.target.value)} />
+                        <p></p>
+                        <button className='submit-button' style={{ backgroundColor: "#009AC7" }} type="submit">Add Post</button>
+                    </div>
+                </form>
             </div>
         </div>
+    </div>
     )
 }
 
