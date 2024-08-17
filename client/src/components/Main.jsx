@@ -9,7 +9,7 @@ import '../styling/Main.css';
 //view profile by id - piggy off of main - 1 hour max
 //show the user that posted - 50% done - 1 hour max
 
-
+//trying to see
 
 const Main = () => {
     // Initialize state for posts
