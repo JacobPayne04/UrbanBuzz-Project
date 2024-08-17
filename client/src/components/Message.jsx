@@ -20,7 +20,7 @@ const Message = ({ userId }) => {
                 console.error('Error fetching messages:', error);
             }
         };
-
+        // this is my message -----
         // Fetch users when the component mounts
         const fetchUsers = async () => {
             try {
@@ -34,6 +34,16 @@ const Message = ({ userId }) => {
         fetchMessages();
         fetchUsers();
     }, [userId]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8000/api/users")
+            .then(res => {
+                console.log("✅✅✅✅", res.data)
+                setUsers(res.data.users)
+            })
+            .catch(err => console.log("❌❌❌❌", err))
+
+    }, [])
 
     const handleSendMessage = async () => {
         if (!newMessage.trim() || !receiverId) return;
@@ -55,13 +65,13 @@ const Message = ({ userId }) => {
     return (
         <div className="message-component">
             <div className="users-list">
-                {users.map(user => (
+                {users.map((user) => (
                     <div 
                         key={user._id} 
                         className="user-item"
                         onClick={() => setReceiverId(user._id)}
                     >
-                        {user.name}
+                        {user.username}
                     </div>
                 ))}
             </div>
