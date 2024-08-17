@@ -8,6 +8,8 @@ const Message = ({ userId }) => {
     const [users, setUsers] = useState([]);
     const [receiverId, setReceiverId] = useState(null);
 
+
+
     useEffect(() => {
         // Fetch messages when the component mounts
         const fetchMessages = async () => {
