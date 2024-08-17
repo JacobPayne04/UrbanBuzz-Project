@@ -1,12 +1,35 @@
+.message-component {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.users-list {
+    width: 25%;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.user-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item:hover {
+    background-color: #f0f0f0;
+}
+
 .message-container {
     display: flex;
     flex-direction: column;
+    flex: 1;
     height: 80vh;
     margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #f9f9f9;
-    
 }
 
 .messages-list {
