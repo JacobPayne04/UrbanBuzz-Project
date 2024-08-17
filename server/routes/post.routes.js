@@ -16,6 +16,6 @@ module.exports = app => {
     app.patch('/api/posts/:id', PostController.updateExistingPost)
     app.post('/api/posts', PostController.createNewPost);
     app.delete('/api/posts/:id', PostController.deleteAnExistingPost);
-
+    
 }
 //change rout
