@@ -24,23 +24,7 @@ const UserSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post"
     }],
-    messages: [
-        {
-            content: {
-                type: String,
-                required: true
-            },
-            timestamp: {
-                type: Date,
-                default: Date.now
-            },
-            sender: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "User",
-                required: true
-            }
-        }
-    ]
+
 })
 
 UserSchema.virtual("confirm")
