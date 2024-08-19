@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom'
 import axios from 'axios';
 import '../styling/Message.css';
 
@@ -7,6 +8,7 @@ const Message = ({ userId }) => {
     const [newMessage, setNewMessage] = useState('');
     const [users, setUsers] = useState([]);
     const [receiverId, setReceiverId] = useState(null);
+    const { id } = useParams()
 
 
 
@@ -14,7 +16,7 @@ const Message = ({ userId }) => {
         // Fetch messages when the component mounts
         const fetchMessages = async () => {
             try {
-                const response = await axios.get(`/api/messages/${userId}`);
+                const response = await axios.get("/api/messages/" + id); //changes *******
                 setMessages(response.data);
             } catch (error) {
                 console.error('Error fetching messages:', error);
@@ -35,8 +37,6 @@ const Message = ({ userId }) => {
         fetchUsers();
     }, [userId]);
 
-
-    //for users list
     useEffect(() => {
         axios.get("http://localhost:8000/api/users")
             .then(res => {
@@ -52,14 +52,13 @@ const Message = ({ userId }) => {
 
         try {
             const response = await axios.post('/api/messages/send', {
-                senderId: userId,
+                senderId: id,
                 receiverId: receiverId,
                 content: newMessage
             });
 
             setMessages([...messages, response.data.message]);
             setNewMessage('');
-            console.log('Message sent successfully:', response.data.message);
         } catch (error) {
             console.error('Error sending message:', error);
         }
@@ -72,9 +71,8 @@ const Message = ({ userId }) => {
                     <div 
                         key={user._id} 
                         className="user-item"
-                        onClick={ () => setReceiverId(user._id)}  
-                       
-                    >   
+                        onClick={() => setReceiverId(user._id)}
+                    >
                         {user.username}
                     </div>
                 ))}
