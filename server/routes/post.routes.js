@@ -19,6 +19,6 @@ module.exports = app => {
     app.delete('/api/posts/:id', PostController.deleteAnExistingPost);
 
    app.post('/api/messages/send', MessageController.sendMessage);
-   app.get('/api/messages/:userId', MessageController.getMessages);
+   app.get('/api/messages', MessageController.getMessages);
 }
 //change rout
