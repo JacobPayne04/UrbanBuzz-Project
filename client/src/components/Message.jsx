@@ -13,29 +13,14 @@ const Message = ({ userId }) => {
 
 
     useEffect(() => {
-        // Fetch messages when the component mounts
-        const fetchMessages = async () => {
-            try {
-                const response = await axios.get("/api/messages/" + id); //changes *******
-                setMessages(response.data);
-            } catch (error) {
-                console.error('Error fetching messages:', error);
-            }
-        };
-        // this is my message -----
-        // Fetch users when the component mounts
-        const fetchUsers = async () => {
-            try {
-                const response = await axios.get('/api/users');
-                setUsers(response.data);
-            } catch (error) {
-                console.error('Error fetching users:', error);
-            }
-        };
+        axios.get("http://localhost:8000/api/messages")
+            .then(res => {
+                console.log("✅✅✅✅", res.data)
+                setUsers(res.data)
+            })
+            .catch(err => console.log("❌❌❌❌", err))
 
-        fetchMessages();
-        fetchUsers();
-    }, [userId]);
+    }, [])
 
     useEffect(() => {
         axios.get("http://localhost:8000/api/users")
@@ -52,8 +37,8 @@ const Message = ({ userId }) => {
 
         try {
             const response = await axios.post('/api/messages/send', {
-                senderId: id,
-                receiverId: receiverId,
+                sender: id,
+                reciever: receiverId,
                 content: newMessage
             });
 

@@ -19,14 +19,25 @@ const sendMessage = async (req, res) => {
     }
 };
 
-const getMessages = async (req, res) => {
-    const { userId } = req.params;
+// const getMessages = async (req, res) => {
+//     const { userId } = req.params;
 
+//     try {
+//         const messages = await Message.find({ $or: [{ sender: userId }, { receiver: userId }] }).populate('sender receiver');
+//         res.status(200).json(messages);
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// };
+
+const getMessages = async (req, res) => {
     try {
-        const messages = await Message.find({ $or: [{ sender: userId }, { receiver: userId }] }).populate('sender receiver');
-        res.status(200).json(messages);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+        const messages = await Message.find()
+            .populate('sender', 'username')
+            .populate('receiver', 'username');
+        res.json(messages);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch messages' });
     }
 };
 
