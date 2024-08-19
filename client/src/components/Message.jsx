@@ -5,10 +5,12 @@ import '../styling/Message.css';
 
 const Message = ({ userId }) => {
     const [messages, setMessages] = useState([]);
-    const [newMessage, setNewMessage] = useState('');
+    const [content, setContent] = useState(''); // Renamed from 'newMessage' to 'content'
     const [users, setUsers] = useState([]);
-    const [receiverId, setReceiverId] = useState(null);
-    const { id } = useParams()
+    const [receiver, setReceiver] = useState(null); // Renamed from 'receiverId' to 'receiver'
+    const { id } = useParams(); // This will be the sender
+    const [errors, setErrors] = useState([])
+    const _id = localStorage.getItem("_id")
 
 
     // changed this ------------
@@ -32,22 +34,35 @@ const Message = ({ userId }) => {
 
     }, [])
 
-    const handleSendMessage = async () => {
-        if (!newMessage.trim() || !receiverId) return;
+    const handleSendMessage = (e) => {
+        
+        e.preventDefault();
 
-        try {
-            const response = await axios.post('/api/messages/send', {
-                sender: id,
-                reciever: receiverId,
-                content: newMessage
-            });
-
-            setMessages([...messages, response.data.message]);
-            setNewMessage('');
-        } catch (error) {
-            console.error('Error sending message:', error);
+        const messageVariables = {
+            sender: _id,        // Match with the 'sender' field in the model
+            receiver: receiver, // Match with the 'receiver' field in the model
+            content: content
         }
+
+        console.log(messageVariables)
+
+        axios.post("http://localhost:8000/api/messages/send", messageVariables)
+            .then(res =>{
+                console.log("✔✔✔✔ message sent", res.data)
+            })
+            .catch(err => {
+                console.log("❌❌❌❌", err)
+                const errorResponse = err.response.data.errors;
+                const errorArr = []
+                for (const key of Object.keys(errorResponse)) {
+                    errorArr.push(errorResponse[key].message)
+                }
+                setErrors(errorArr)
+
+            })
     };
+
+    
 
     return (
         <div className="message-component">
@@ -56,7 +71,7 @@ const Message = ({ userId }) => {
                     <div 
                         key={user._id} 
                         className="user-item"
-                        onClick={() => setReceiverId(user._id)}
+                        onClick={() => setReceiver(user._id)}
                     >
                         {user.username}
                     </div>
@@ -73,8 +88,8 @@ const Message = ({ userId }) => {
                 <div className="message-input">
                     <input
                         type="text"
-                        value={newMessage}
-                        onChange={(e) => setNewMessage(e.target.value)}
+                        value={content}
+                        onChange={(e) => setContent(e.target.value)}
                         placeholder="Type a message..."
                     />
                     <button onClick={handleSendMessage}>Send</button>
