@@ -35,6 +35,8 @@ const Message = ({ userId }) => {
         fetchUsers();
     }, [userId]);
 
+
+    //for users list
     useEffect(() => {
         axios.get("http://localhost:8000/api/users")
             .then(res => {
@@ -49,7 +51,7 @@ const Message = ({ userId }) => {
         if (!newMessage.trim() || !receiverId) return;
 
         try {
-            const response = await axios.post('/api/messages', {
+            const response = await axios.post('/api/messages/send', {
                 senderId: userId,
                 receiverId: receiverId,
                 content: newMessage
@@ -57,6 +59,7 @@ const Message = ({ userId }) => {
 
             setMessages([...messages, response.data.message]);
             setNewMessage('');
+            console.log('Message sent successfully:', response.data.message);
         } catch (error) {
             console.error('Error sending message:', error);
         }
@@ -69,8 +72,9 @@ const Message = ({ userId }) => {
                     <div 
                         key={user._id} 
                         className="user-item"
-                        onClick={() => setReceiverId(user._id)}
-                    >
+                        onClick={ () => setReceiverId(user._id)}  
+                       
+                    >   
                         {user.username}
                     </div>
                 ))}
