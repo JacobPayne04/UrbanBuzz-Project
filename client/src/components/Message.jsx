@@ -11,7 +11,7 @@ const Message = ({ userId }) => {
     const { id } = useParams()
 
 
-
+    // chaged this
     useEffect(() => {
         axios.get("http://localhost:8000/api/messages")
             .then(res => {
