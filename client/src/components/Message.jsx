@@ -11,11 +11,11 @@ const Message = ({ userId }) => {
     const { id } = useParams()
 
 
-    // changed this
+    // changed this ------------
     useEffect(() => {
         axios.get("http://localhost:8000/api/messages")
             .then(res => {
-                console.log("✅✅✅✅", res.data)
+                console.log("✅✅✅✅ messages", res.data)
                 setUsers(res.data)
             })
             .catch(err => console.log("❌❌❌❌", err))
