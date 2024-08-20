@@ -84,7 +84,7 @@ const Message = ({ userId }) => {
                         >
                         
                         <div>
-                            <img src={user.image} className='Message-Profile-Img'></img>
+                            <img src={user.image}  className='Message-Profile-Img'></img>
                             {user.username}
                         </div>
                         </div>
@@ -105,7 +105,7 @@ const Message = ({ userId }) => {
                     
                     return (
                         <div key={message._id} className="message-item">
-                            <strong>{formattedTime} {message.sender.username}:</strong> {message.content}
+                            <strong>{formattedTime} : {message.sender.username}:</strong> {message.content}
                         </div>
                     );
                 })}

@@ -35,6 +35,7 @@ const Profile = () => {
     <div className='profileContain'>
       <div className='top'>
         <img className='profilePicture' src={image} alt='Profile' />
+        
         <p className="username">{username}</p>
       </div>
       
