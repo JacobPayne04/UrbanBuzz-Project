@@ -40,8 +40,8 @@ const Message = ({ userId }) => {
         e.preventDefault();
 
         const messageVariables = {
-            sender: _id,        // Match with the 'sender' field in the model
-            receiver: receiver, // Match with the 'receiver' field in the model
+            senderId: _id,        // Match with the 'sender' field in the model
+            receiverId: receiver, // Match with the 'receiver' field in the model
             content: content
         }
 
