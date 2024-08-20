@@ -86,7 +86,7 @@ const Message = ({ userId }) => {
                 <div className="messages-list">
                     {messages.map((message) => (
                         <div key={message._id} className="message-item">
-                            <strong>{message.sender.name}:</strong> {message.content}
+                            <strong>{message.sender.username}:</strong> {message.content}
                         </div>
                     ))}
                 </div>
