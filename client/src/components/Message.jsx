@@ -10,6 +10,7 @@ const Message = ({ userId }) => {
     const [receiver, setReceiver] = useState(null); // Renamed from 'receiverId' to 'receiver'
     const [errors, setErrors] = useState([])
     const _id = localStorage.getItem("_id")
+    const username = localStorage.getItem("username")
 
 
     useEffect(() => {
@@ -73,13 +74,18 @@ const Message = ({ userId }) => {
         <div className="message-component">
             <div className="users-list">
                 {users.map((user) => (
-                    <div 
-                        key={user._id} 
-                        className="user-item"
-                        onClick={() => handleUserClick(user._id)} // Fetch messages on click
-                    >
-                        {user.username}
-                    </div>
+                    <>
+                        {user.username == username ? <></> : 
+
+                        <div 
+                            key={user._id} 
+                            className="user-item"
+                            onClick={() => handleUserClick(user._id)} // Fetch messages on click
+                        >
+                            {user.username}
+                        </div>
+                        }
+                    </>
                 ))}
             </div>
             <div className="message-container">
