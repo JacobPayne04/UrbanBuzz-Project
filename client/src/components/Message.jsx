@@ -89,13 +89,23 @@ const Message = ({ userId }) => {
                 ))}
             </div>
             <div className="message-container">
-                <div className="messages-list">
-                    {messages.map((message) => (
+            <div className="messages-list">
+                {messages.map((message) => {
+                    const date = new Date(message.timestamp);
+                    let hours = date.getHours();
+                    const minutes = date.getMinutes().toString().padStart(2, '0');
+                    const ampm = hours >= 12 ? 'PM' : 'AM';
+                    hours = hours % 12;
+                    hours = hours ? hours : 12; // the hour '0' should be '12'
+                    const formattedTime = `${hours}:${minutes} ${ampm}`;
+                    
+                    return (
                         <div key={message._id} className="message-item">
-                            <strong>{message.sender.username}:</strong> {message.content}
+                            <strong>{formattedTime} {message.sender.username}:</strong> {message.content}
                         </div>
-                    ))}
-                </div>
+                    );
+                })}
+            </div>
                 <div className="message-input">
                     <input
                         type="text"
