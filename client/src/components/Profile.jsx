@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom';
 import '../styling/Profile.css';
+import { useNavigate } from 'react-router-dom';
 
 const Profile = () => {
 
@@ -13,6 +14,12 @@ const Profile = () => {
   const [user, setUser] = useState([]);
   const username = localStorage.getItem("username")
   const image = localStorage.getItem("image")
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+      navigate("/message"); // Navigate to the path for the other component
+  };
 
 
     // Fetch data on component mount
@@ -35,8 +42,10 @@ const Profile = () => {
     <div className='profileContain'>
       <div className='top'>
         <img className='profilePicture' src={image} alt='Profile' />
-        
-        <p className="username">{username}</p>
+        <div>
+          <p className="username">{username}</p>
+          <button onClick={handleClick} className='Profile-Message-Btn'>Message</button>
+        </div>
       </div>
       
       <h1 className='postWord'>POSTS</h1>
