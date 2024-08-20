@@ -8,7 +8,6 @@ const Message = ({ userId }) => {
     const [content, setContent] = useState(''); // Renamed from 'newMessage' to 'content'
     const [users, setUsers] = useState([]);
     const [receiver, setReceiver] = useState(null); // Renamed from 'receiverId' to 'receiver'
-    const { id } = useParams(); // This will be the sender
     const [errors, setErrors] = useState([])
     const _id = localStorage.getItem("_id")
 
