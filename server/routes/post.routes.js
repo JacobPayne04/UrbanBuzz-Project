@@ -20,5 +20,7 @@ module.exports = app => {
 
    app.post('/api/messages/send', MessageController.sendMessage);
    app.get('/api/messages', MessageController.getMessages);
+   app.get('/api/messages/by/:id', MessageController.GetMessagesByReceiver);
+
 }
 //change rout

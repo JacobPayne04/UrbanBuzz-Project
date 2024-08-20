@@ -34,16 +34,20 @@ const sendMessage = async (req, res) => {
 };
 
 
-// const getMessages = async (req, res) => {
-//     const { userId } = req.params;
+const GetMessagesByReceiver = async (req, res) => {
+    const { receiverId } = req.params; // Assuming the receiver's ID is passed as a URL parameter
 
-//     try {
-//         const messages = await Message.find({ $or: [{ sender: userId }, { receiver: userId }] }).populate('sender receiver');
-//         res.status(200).json(messages);
-//     } catch (error) {
-//         res.status(500).json({ error: error.message });
-//     }
-// };
+    try {
+        const messages = await Message.find({ receiver: receiverId }) // Filter messages by receiver's ID
+            .populate('sender', 'username')
+            .populate('receiver', 'username');
+        
+        res.json(messages);
+    } catch (err) {
+        res.status(500).json({ error: 'Failed to fetch messages' });
+    }
+};
+
 
 const getMessages = async (req, res) => {
     try {
@@ -56,4 +60,4 @@ const getMessages = async (req, res) => {
     }
 };
 
-module.exports = { sendMessage, getMessages };
+module.exports = { sendMessage, getMessages, GetMessagesByReceiver };

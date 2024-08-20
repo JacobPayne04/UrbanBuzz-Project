@@ -12,17 +12,6 @@ const Message = ({ userId }) => {
     const _id = localStorage.getItem("_id")
 
 
-    // changed this ------------
-    useEffect(() => {
-        axios.get("http://localhost:8000/api/messages")
-            .then(res => {
-                console.log("✅✅✅✅ messages", res.data)
-                setUsers(res.data)
-            })
-            .catch(err => console.log("❌❌❌❌", err))
-
-    }, [])
-
     useEffect(() => {
         axios.get("http://localhost:8000/api/users")
             .then(res => {
@@ -32,6 +21,19 @@ const Message = ({ userId }) => {
             .catch(err => console.log("❌❌❌❌", err))
 
     }, [])
+
+    useEffect(() => {
+        const receiverId = receiver
+    
+        axios.get(`http://localhost:8000/api/messages/by/${receiverId}`)
+            .then(res => {
+                console.log("✅✅✅✅ messages", res.data);
+                setMessages(res.data); // Assuming your API response structure
+            })
+            .catch(err => console.log("❌❌❌❌", err));
+    }, []);
+    
+
 
     const handleSendMessage = (e) => {
         
