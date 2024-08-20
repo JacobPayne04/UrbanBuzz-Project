@@ -3,7 +3,7 @@ const Message = require('../models/message.model');
 
 const sendMessage = async (req, res) => {
     const { senderId, receiverId, content } = req.body;
-
+    console.log("trying to save message" + " 🎉🌹🎉🎉🌹🌹")
     try {
         // Create a new message
         const message = new Message({
@@ -13,7 +13,9 @@ const sendMessage = async (req, res) => {
         });
 
         // Save the message to the database
+        console.log('Saving message:', message);
         await message.save();
+        console.log('Message saved successfully');
 
         // Populate sender and receiver if you want to return full details
         const populatedMessage = await Message.findById(message._id)
