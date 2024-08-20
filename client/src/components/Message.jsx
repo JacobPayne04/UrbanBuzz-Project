@@ -82,7 +82,11 @@ const Message = ({ userId }) => {
                             className="user-item"
                             onClick={() => handleUserClick(user._id)} // Fetch messages on click
                         >
+                        
+                        <div>
+                            <img src={user.image} className='Message-Profile-Img'></img>
                             {user.username}
+                        </div>
                         </div>
                         }
                     </>
