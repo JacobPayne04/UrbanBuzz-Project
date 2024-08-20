@@ -22,16 +22,20 @@ const Message = ({ userId }) => {
 
     }, [])
 
-    useEffect(() => {
-        const receiverId = receiver
-    
-        axios.get(`http://localhost:8000/api/messages/by/${receiverId}`)
+    const fetchMessages = (receiverId) => {
+        axios.get(`http://localhost:8000/api/messages/between/${_id}/${receiverId}`)
             .then(res => {
                 console.log("✅✅✅✅ messages", res.data);
                 setMessages(res.data); // Assuming your API response structure
             })
             .catch(err => console.log("❌❌❌❌", err));
-    }, []);
+    };
+
+    const handleUserClick = (receiverId) => {
+        setReceiver(receiverId);
+        fetchMessages(receiverId); // Fetch messages when a user is clicked
+    };
+    
     
 
 
@@ -72,7 +76,7 @@ const Message = ({ userId }) => {
                     <div 
                         key={user._id} 
                         className="user-item"
-                        onClick={() => setReceiver(user._id)}
+                        onClick={() => handleUserClick(user._id)} // Fetch messages on click
                     >
                         {user.username}
                     </div>
