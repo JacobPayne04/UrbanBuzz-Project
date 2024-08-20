@@ -33,7 +33,7 @@ function App() {
           <div className='btnbox'>
             <Link to="/main"><button className='navbtn btn btn-primary'>Home</button></Link>
             <Link to="/profile"><button className='navbtn btn btn-primary'>Profile</button></Link>
-            <Link to={`/message/${_id}`}><button className='navbtn btn btn-primary'>Messages</button></Link>
+            <Link to="/message"><button className='navbtn btn btn-primary'>Messages</button></Link>
             <Link to="/create"><button className='navbtn btn btn-primary'>Add Post</button></Link>
             <button className='navbtn btn btn-primary' onClick={SignOut}>Sign Out</button>
           </div>
@@ -47,7 +47,7 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Main />} />
             <Route path="/profile" element={<Profile />} />
-            <Route path="/message/:user" element={<Message />} />
+            <Route path="/message" element={<Message />} />
             <Route path="/loginreg" element={<LoginAndReg />} />
             <Route path="*" element={<Navigate to="/main" />} />
           </Routes>
