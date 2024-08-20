@@ -26,7 +26,7 @@ const Profile = () => {
     useEffect(() => {
       axios.get('http://localhost:8000/api/posts')
           .then(res => {
-              console.log("✅✅✅✅ this is post", res.data.posts);
+             // console.log("✅✅✅✅ this is post", res.data.posts);
               setPost(res.data.posts);
               
           })

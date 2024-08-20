@@ -21,7 +21,7 @@ const Main = () => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/users")
             .then(res => {
-                console.log("✅✅✅✅ this is users", res.data)
+                //console.log("✅✅✅✅ this is users", res.data)
                 setUsers(res.data.users)
             })
             .catch(err => console.log("❌❌❌❌", err))
@@ -32,7 +32,7 @@ const Main = () => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/posts")
             .then(res => {
-                console.log("✅✅✅✅ this is post", res.data.posts);
+               // console.log("✅✅✅✅ this is post", res.data.posts);
                 setPost(res.data.posts);
                 
             })
@@ -56,7 +56,7 @@ const Main = () => {
     useEffect(() => {
         axios.get("http://localhost:8000/api/users")
             .then(res => {
-                console.log("✅✅✅✅", res.data)
+               // console.log("✅✅✅✅", res.data)
                 setUser(res.data.users)
             })
             .catch(err => console.log("❌❌❌❌", err))
