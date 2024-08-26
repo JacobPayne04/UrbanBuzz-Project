@@ -9,6 +9,9 @@ import '../styling/Main.css';
 //view profile by id - piggy off of main - 1 hour max
 //show the user that posted - 50% done - 1 hour max
 
+//#TODO - make post for in a constructible way and fix the css on profile page! - 1 hour max 
+
+
 //trying to see
 
 const Main = () => {
